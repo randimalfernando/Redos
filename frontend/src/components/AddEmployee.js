@@ -18,11 +18,10 @@ export default function AddEmployee(){
             gender
         }
        
-        const pattern = new RegExp(name, "gi");
-        const result = pattern.test(gender);
+        const result = name.localeCompare(gender, undefined, { sensitivity: 'base' });
 
-        if(!result) {
-            console.log('The strings are not similar.');
+        if(result != 0) {
+            console.log('The strings are similar.');
             axios.post('http://localhost:8070/employee/add', newEmployee)
         .then(()=>{
             alert('Employee Added');
@@ -36,7 +35,7 @@ export default function AddEmployee(){
         });
 
         } else {
-            console.log('Username and password cannot be similar');
+            alert('Username and password cannot be similar');
             console.log('The strings are not similar.');
         }
         //can use this on button as onClick or on form as onSubmit
