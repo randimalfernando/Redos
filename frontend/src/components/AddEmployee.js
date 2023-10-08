@@ -8,6 +8,17 @@ export default function AddEmployee(){
     let [age, setAge] = useState();
     let [gender, setGender] = useState("");
 
+
+    function compareStrings(name, gender){
+   
+        // This condition will return true only if s1 and s2 hold true from equality
+        if(name == gender){
+            return 1;
+        }
+        
+        return 0;
+    }
+
     function sendData(e){
         //e - event, because sendData is an event
         e.preventDefault(); //form submit default is to send data to another site. to prevent default behavior this is used
@@ -18,11 +29,10 @@ export default function AddEmployee(){
             gender
         }
        
-        const pattern = new RegExp(name, "gi");
-        const result = pattern.test(gender);
+         const result = compareStrings(name.toUpperCase(), gender.toUpperCase());
 
         if(!result) {
-            console.log('The strings are not similar.');
+            console.log('The strings are similar.');
             axios.post('http://localhost:8070/employee/add', newEmployee)
         .then(()=>{
             alert('Employee Added');
@@ -37,7 +47,7 @@ export default function AddEmployee(){
 
         } else {
             console.log('Username and password cannot be similar');
-            console.log('The strings are not similar.');
+            alert('');
         }
         //can use this on button as onClick or on form as onSubmit
     }
