@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8070;
 app.use(cors());
 app.use(bodyParser.json());
 
-const URL = process.env.MONGODB_URL;
+const URL = "mongodb+srv://randimalfdo:5ZLmZQYVkVyyaaP5@cluster0.y1prhhi.mongodb.net/";
 
 mongoose.connect(URL, {
     useCreateIndex: true,
