@@ -62,7 +62,7 @@ export default function AddEmployee(){
             </div>
             <div className="form-group">
                 <label for="name">Password</label>
-                <input type="text" className="form-control" id="gender" placeholder="Enter gender" onChange = {(e) => {
+                <input type="text" className="form-control" id="gender" placeholder="Enter Password" onChange = {(e) => {
                     setGender(e.target.value); 
                 }}/>
                 
